@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Azamataka from '../../img/Azamataka.png'
 import norma from '../../img/norma.png'
 import axios from 'axios'
 const Mainone = () => {
@@ -8,6 +7,8 @@ const Mainone = () => {
     axios('https://trello.vimlc.uz/get-personal-info')
     .then(data =>{
       setdata(data.data)
+      console.log(data.data);
+      
     })
     .catch(err =>{
       console.log(err);
@@ -19,7 +20,7 @@ const Mainone = () => {
         {data && (
                       <div className="ml-auto mr-auto max-w-[1200px] " >
                       <div className="mt-12 flex">
-                      <img src={Azamataka} alt="" />
+                      <img src={data.imageUrl} alt="" />
                        <div className="malumot">
                            <h2 className='w-[350px] text-4xl mt-4 ml-2'>{data.firstName}<br />
                            <span className='w-[350px] text-4xl mt-4 text-[#212529]'>{data.lastName}</span></h2>
