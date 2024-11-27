@@ -1,15 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
+import axios from "axios";
 
-const data = [
-  { name: "Strategik fikrlash", value: 85, color: "#00C49F" },
-];
 
 const CustomPieChart = () => {
+  const [datas, setdatas] = useState([])
+  useEffect(() =>{
+    axios("https://trello.vimlc.uz/competence")
+  .then(data =>{
+    const dataslice = data.data.slice(0,1)
+    setdatas(dataslice)
+  })
+  .catch(err =>{
+    console.log(err);
+  })
+  },[])
+
+  const chartdata = datas.map((value) =>({
+      name: value.label,
+      value: value.percentage,
+      color: value.color,
+    
+  }));
+  
+    
   return (
     <PieChart width={300} height={300} >
       <Pie
-        data={data}
+        data={chartdata}
         cx={200}
         cy={150}
         innerRadius={60}
@@ -17,7 +35,7 @@ const CustomPieChart = () => {
         dataKey="value"
         nameKey="name"
       >
-        {data.map((entry, index) => (
+        {datas.map((entry, index) => (
           <Cell key={`cell-${index}`} fill={entry.color} />
         ))}
       </Pie>

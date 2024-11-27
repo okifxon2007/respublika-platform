@@ -10,7 +10,6 @@ const LegalLiteracy = () => {
   useEffect(() =>{
     axios('https://trello.vimlc.uz/knowlodge')
     .then(data =>{
-      console.log(data.data.semicharts);
       setchartone(data.data.semicharts)
     })
     .catch(err =>{

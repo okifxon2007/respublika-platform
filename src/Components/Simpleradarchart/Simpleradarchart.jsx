@@ -43,7 +43,7 @@ const data = [
 export default class Example extends PureComponent {
   render() {
     return (
-      <div style={{ width: '100px', height: 300 }}>
+      <div style={{ width: '500px', height: 300 }}>
         <ResponsiveContainer>
           <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
             <PolarGrid />

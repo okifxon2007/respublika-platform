@@ -7,7 +7,7 @@ const Mainone = () => {
     axios('https://trello.vimlc.uz/get-personal-info')
     .then(data =>{
       setdata(data.data)
-      console.log(data.data);
+      
       
     })
     .catch(err =>{

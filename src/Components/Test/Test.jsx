@@ -10,7 +10,6 @@ const Test = () => {
   useEffect(() =>{
     axios('https://trello.vimlc.uz/knowlodge')
     .then(data =>{
-      console.log(data.data);
       setchartone(data.data)
     })
     .catch(err =>{
@@ -28,10 +27,10 @@ const Test = () => {
       <Twochart></Twochart>
       </div>
 
-     <div className="flex mt-64">
+     <div className="w-96 ml-72 mt-20">
       <Dashedlinechart></Dashedlinechart>
      <div className='ml-2'>
-     <Stacedareachart></Stacedareachart>
+     {/* <Stacedareachart></Stacedareachart> */}
      </div>
      </div>
      </div>
