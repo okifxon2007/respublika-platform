@@ -10,6 +10,7 @@ const Header = () => {
         <h1 className='mt-4 w-96 text-2xl text-center'>Республика Ассессмент маркази онлайн платформаси</h1>
         <img src={yetmishikki} alt="" />
       </div>
+      
       </header>
     </div>
   )
